@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -15,6 +16,12 @@ public class Thing {
     @Column(unique = true,nullable = false)
     private Long id;
     private String description;
+
+    @ManyToOne
+    private Item item;
+
+    @ManyToOne
+    private State state;
 
     public Long getId() {
         return id;
@@ -28,7 +35,19 @@ public class Thing {
     public void setDescription(String description) {
         this.description = description;
     }
-
+    public Item getItem() {
+        return item;
+    }
+    public void setItem(Item item) {
+        this.item = item;
+    }
+    public State getState() {
+        return state;
+    }
+    public void setState(State state) {
+        this.state = state;
+    }
+    
     
     
 }

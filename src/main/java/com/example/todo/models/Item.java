@@ -1,10 +1,14 @@
 package com.example.todo.models;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -17,6 +21,13 @@ public class Item {
     private Long id;
     private String title;
     private String description;
+
+    @ManyToOne
+    private Account account;
+
+    @OneToMany(mappedBy = "item")
+    private List<Thing> things;
+
     public Long getId() {
         return id;
     }
@@ -35,7 +46,19 @@ public class Item {
     public void setDescription(String description) {
         this.description = description;
     }
-
+    public Account getAccount() {
+        return account;
+    }
+    public void setAccount(Account account) {
+        this.account = account;
+    }
+    public List<Thing> getThings() {
+        return things;
+    }
+    public void setThings(List<Thing> things) {
+        this.things = things;
+    }
+    
     
 
     
