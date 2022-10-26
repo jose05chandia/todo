@@ -23,6 +23,12 @@ public class State {
     @OneToMany(mappedBy = "state")
     private List<Thing> things;
 
+    public State() {
+    }
+    public State(String name, List<Thing> things) {
+        this.name = name;
+        this.things = things;
+    }
     public Long getId() {
         return id;
     }

@@ -23,6 +23,14 @@ public class Thing {
     @ManyToOne
     private State state;
 
+    
+    public Thing() {
+    }
+    public Thing(String description, Item item, State state) {
+        this.description = description;
+        this.item = item;
+        this.state = state;
+    }
     public Long getId() {
         return id;
     }

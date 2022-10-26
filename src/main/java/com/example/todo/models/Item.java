@@ -28,6 +28,19 @@ public class Item {
     @OneToMany(mappedBy = "item")
     private List<Thing> things;
 
+    
+    public Item() {
+    }
+    
+
+    public Item(String title, String description, Account account, List<Thing> things) {
+        this.title = title;
+        this.description = description;
+        this.account = account;
+        this.things = things;
+    }
+
+
     public Long getId() {
         return id;
     }

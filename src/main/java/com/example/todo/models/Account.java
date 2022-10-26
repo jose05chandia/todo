@@ -24,6 +24,8 @@ public class Account {
     @OneToMany(mappedBy = "account")
     private List<Item> items;
 
+    public Account() {
+    }
     public Account(String email, String password) {
         this.email = email;
         this.password = password;
