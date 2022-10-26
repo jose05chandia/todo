@@ -1,6 +1,7 @@
 package com.example.todo.services;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,9 +14,11 @@ import com.example.todo.repositories.AccountRepository;
 public class AccountService {
     @Autowired
     AccountRepository accountRepository;
-
-    public ArrayList<Account> getAccounts(){
-        return (ArrayList<Account>) accountRepository.findAll();
+    public Account creaAccount(Account account){
+        return accountRepository.save(account);
+    }
+    public List<Account> getAccounts(){
+        return accountRepository.findAll();
     }
 
     public Optional<Account> findById(Long id){
@@ -29,10 +32,10 @@ public class AccountService {
     public ArrayList<Account> getByPassword(String pass){
         return accountRepository.getByPassword(pass);
     }
-
-    public Account creaAccount(Account account){
+    public Account updateAccount(Account account){
         return accountRepository.save(account);
     }
+    
 
 
     public boolean deleteAccount(Long id){
